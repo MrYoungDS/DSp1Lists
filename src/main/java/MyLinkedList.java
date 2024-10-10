@@ -17,8 +17,9 @@
  * object that it is referencing.
  * <p>
  * You may, of course, wish to add additional instance fields and private
- * methods, but please do not modify public interface. Again, remember the
- * <code>IndexOutOfBoundsException</code>.
+ * methods, but please do not modify public interface. Again, remember to
+ * avoid the <code>IndexOutOfBoundsException</code> and throw the
+ * <code>NullPointerException</code> where noted.
  */
 public class MyLinkedList
 {
@@ -42,7 +43,8 @@ public class MyLinkedList
      * Constructs an empty list.
      */
     public MyLinkedList() {
-        // TODO your code here
+        first = null;
+        // TODO: you can add code here
     }
 
     /**
@@ -51,7 +53,7 @@ public class MyLinkedList
      * @throws NullPointerException if item is null
      */
     public void addFirst(Integer item) {
-        // TODO your code here
+        // TODO: your code goes here
     }
 
     /**
@@ -60,11 +62,10 @@ public class MyLinkedList
      * elements to the right (adding one to their indices).
      * @param index index at which the specified Integer is to be inserted
      * @param item Integer to be inserted
-     * @throws IndexOutOfBoundsException if index is out of bounds
      * @throws NullPointerException if item is null
      */
     public void add(int index, Integer item) {
-        // TODO your code here
+        // TODO: your code goes here
     }
 
     /**
@@ -72,22 +73,20 @@ public class MyLinkedList
      * subsequent Integers to the left (subtracts one from their indices).
      * @param index the index of the Integer to remove
      * @return the Integer that was removed from the list
-     * @throws IndexOutOfBoundsException if index is out of bounds
      */
     public Integer remove(int index) {
-        // TODO replace the code here
-        return 0;
+        // TODO: modify the code here
+        return null;
     }
 
     /**
      * Returns the Integer at the specified position in this list.
      * @param index index of the element to return
      * @return the Integer at the specified position in this list
-     * @throws IndexOutOfBoundsException if index is out of bounds
      */
     public Integer get(int index) {
-        // TODO replace the code here
-        return 0;
+        // TODO: modify the code here
+        return null;
     }
 
     /**
@@ -95,11 +94,10 @@ public class MyLinkedList
      * specified Integer.
      * @param index index of the integer to replace
      * @param item Integer to be stored at the specified position
-     * @throws IndexOutOfBoundsException if index is out of bounds
      * @throws NullPointerException if item is null
      */
     public void set(int index, Integer item) {
-        // TODO your code here
+        // TODO: your code goes here
     }
 
     /**
@@ -107,7 +105,7 @@ public class MyLinkedList
      * @return the number of Integers in this list
      */
     public int size() {
-        // TODO replace the code here
+        // TODO: modify the code here
         return 0;
     }
 
@@ -120,7 +118,7 @@ public class MyLinkedList
      * @throws NullPointerException if item is null
      */
     public int indexOf(Integer item) {
-        // TODO replace the code here
+        // TODO: modify the code here
         return 0;
     }
 
@@ -131,7 +129,7 @@ public class MyLinkedList
      * @throws NullPointerException if item is null
      */
     public boolean contains(Integer item) {
-        // TODO replace the code here
+        // TODO: modify the code here
         return false;
     }
 
@@ -140,7 +138,7 @@ public class MyLinkedList
      * call returns.
      */
     public void clear() {
-        // TODO your code here
+        // TODO: your code goes here
     }
 
     /**
@@ -148,7 +146,7 @@ public class MyLinkedList
      * @return true if this list is empty
      */
     public boolean isEmpty() {
-        // TODO replace the code here
+        // TODO: modify the code here
         return false;
     }
 }

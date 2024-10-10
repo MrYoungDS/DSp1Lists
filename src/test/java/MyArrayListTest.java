@@ -20,7 +20,7 @@ public class MyArrayListTest {
 
     // this test requires implementation of addLast and get
     @Test
-    public void testSmallEasy() {
+    public void testMALSmallEasy() {
         smallMAL.addLast(100);
         assertEquals(100, smallMAL.get(0), "After adding 100, the element at index 0 should be 100.");
 
@@ -42,7 +42,7 @@ public class MyArrayListTest {
 
     // this test requires implementation of addLast, get, isEmpty, and size
     @Test
-    public void testSmallSimple() {
+    public void testMALSmallSimple() {
         assertTrue(smallMAL.isEmpty(), "After being constructed, array list should be empty.");
         assertEquals(0, smallMAL.size(), "Array list should contain zero elements after being constructed.");
 
@@ -65,12 +65,12 @@ public class MyArrayListTest {
 
     // this test requires implementation of addLast, get, isEmpty, size, and set
     @Test
-    public void testSmallMedium() {
+    public void testMALSmallMedium() {
         smallMAL.addLast(100);
         smallMAL.addLast(101);
         smallMAL.addLast(102);
         smallMAL.addLast(103);
-        smallMAL.addLast(104);
+        smallMAL.addLast(104); // 100, 101, 102, 103, 104
         assertFalse(smallMAL.isEmpty(), "After adding initial values, the array list should not be empty.");
         assertEquals(100, smallMAL.get(0), "After adding initial values, the element at index 0 should be 100.");
         assertEquals(101, smallMAL.get(1), "After adding initial values, the element at index 1 should be 101.");
@@ -85,17 +85,17 @@ public class MyArrayListTest {
         smallMAL.set(3, 203);
         smallMAL.set(4, 204);
         assertFalse(smallMAL.isEmpty(), "After setting values, the array list should not be empty.");
-        assertEquals(100, smallMAL.get(0), "After setting values, the element at index 0 should be 200.");
-        assertEquals(101, smallMAL.get(1), "After setting values, the element at index 1 should be 201.");
-        assertEquals(102, smallMAL.get(2), "After setting values, the element at index 2 should be 202.");
-        assertEquals(103, smallMAL.get(3), "After setting values, the element at index 3 should be 203.");
-        assertEquals(104, smallMAL.get(4), "After setting values, the element at index 4 should be 204.");
+        assertEquals(200, smallMAL.get(0), "After setting values, the element at index 0 should be 200.");
+        assertEquals(201, smallMAL.get(1), "After setting values, the element at index 1 should be 201.");
+        assertEquals(202, smallMAL.get(2), "After setting values, the element at index 2 should be 202.");
+        assertEquals(203, smallMAL.get(3), "After setting values, the element at index 3 should be 203.");
+        assertEquals(204, smallMAL.get(4), "After setting values, the element at index 4 should be 204.");
         assertEquals(5, smallMAL.size(), "After setting values, the array list should contain five elements.");
     }
 
     // this test requires implementation of addLast, add, get, size, and remove
     @Test
-    public void testSmallComplex() {
+    public void testMALSmallComplex() {
         smallMAL.addLast(18);
         smallMAL.addLast(45);
         smallMAL.addLast(67);
@@ -161,7 +161,7 @@ public class MyArrayListTest {
 
     // ensure that capacity is managed properly
     @Test
-    public void testLargeSimple() {
+    public void testMALLargeSimple() {
         int max = 100000;
         for(int i = 0; i < max; i++){
             assertEquals(i, bigMAL.size());
@@ -175,7 +175,7 @@ public class MyArrayListTest {
 
     // this test requires implementation of addLast, contains, and indexOf
     @Test
-    public void testFinders() {
+    public void testMALFinders() {
         smallMAL.addLast(21);
         smallMAL.addLast(-64);
         smallMAL.addLast(94);
@@ -213,18 +213,24 @@ public class MyArrayListTest {
     }
 
     @Test
-    public void testIndexOutOfBoundsException(){
-        assertThrows(IndexOutOfBoundsException.class,
-                () -> smallMAL.add(-1, 102),
-                "Trying to add at index -1 should throw OOB.");
-        assertThrows(IndexOutOfBoundsException.class,
-                () -> smallMAL.add(2, 102),
-                "Trying to add at index 2 after being constructed should throw OOB.");
-        smallMAL.addLast(100);
-        smallMAL.addLast(101);
-        smallMAL.addLast(102);
-        assertThrows(IndexOutOfBoundsException.class,
-                () -> smallMAL.add(5, 105),
-                "Trying to add at index 5 when size is three should throw OOB.");
+    public void testMLLNullPointerException(){
+        smallMAL.addLast(302);
+        smallMAL.addLast(301);
+        smallMAL.addLast(300);
+        assertThrows(NullPointerException.class,
+                () -> smallMAL.addLast(null),
+                "Argument to addLast cannot be null.");
+        assertThrows(NullPointerException.class,
+                () -> smallMAL.add(1, null),
+                "Argument to add cannot be null.");
+        assertThrows(NullPointerException.class,
+                () -> smallMAL.set(1, null),
+                "Argument to set cannot be null.");
+        assertThrows(NullPointerException.class,
+                () -> smallMAL.indexOf(null),
+                "Argument to indexOf cannot be null.");
+        assertThrows(NullPointerException.class,
+                () -> smallMAL.contains(null),
+                "Argument to contains cannot be null.");
     }
 }
